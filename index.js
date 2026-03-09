@@ -10,8 +10,8 @@ app.use(cors());
 // Habilitamos que el servidor entienda formato JSON
 app.use(express.json());
 
-// ⚠️ ACÁ VA TU CREDENCIAL SECRETA DE MERCADO PAGO ⚠️
-const client = new MercadoPagoConfig({ accessToken: "APP_USR-ACA_VA_TU_TOKEN_REAL" });
+// ⚠️ ACÁ VA TU CREDENCIAL SECRETA DE MERCADO PAGO NUEVA ⚠️
+const client = new MercadoPagoConfig({ accessToken: "TU_ACCESS_TOKEN_NUEVO_ACA" });
 
 // Esta es la "puerta" que va a golpear tu página cuando alguien haga clic en Comprar
 app.post("/crear-preferencia", async (req, res) => {
@@ -30,9 +30,9 @@ app.post("/crear-preferencia", async (req, res) => {
       ],
       // A dónde mandamos al cliente después de que paga
       back_urls: {
-        success: "https://www.google.com", // Por ahora lo mandamos a Google de prueba
-        failure: "https://www.google.com",
-        pending: "https://www.google.com",
+        success: "https://agus-tech-tienda.web.app", // <--- AHORA VUELVEN A TU TIENDA
+        failure: "https://agus-tech-tienda.web.app",
+        pending: "https://agus-tech-tienda.web.app",
       },
       auto_return: "approved",
     };
